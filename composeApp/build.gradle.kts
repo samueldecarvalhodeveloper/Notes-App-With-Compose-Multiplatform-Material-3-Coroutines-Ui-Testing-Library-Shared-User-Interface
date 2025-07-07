@@ -16,7 +16,7 @@ kotlin {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -27,13 +27,14 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.android)
             implementation(libs.android.driver)
+            implementation(libs.sqlite.driver)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -57,7 +58,6 @@ kotlin {
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
             implementation(compose.uiTest)
             implementation(libs.ktor.client.mock)
-            implementation(libs.sqlite.driver)
         }
         iosMain.dependencies {
             implementation(libs.native.driver)
@@ -91,12 +91,20 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
     debugImplementation(compose.uiTooling)
     androidTestImplementation(libs.androidx.ui.test.junit4.android)
     debugImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
 }
 
 sqldelight {

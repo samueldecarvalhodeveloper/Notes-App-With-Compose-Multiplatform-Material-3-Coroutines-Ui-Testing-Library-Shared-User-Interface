@@ -17,6 +17,7 @@ kotlin = "2.1.10"
 kotlinx-coroutines = "1.10.1"
 ktorClientCore = "2.3.5"
 navigationCompose = "2.8.0-alpha10"
+robolectric = "4.15.1"
 sqliteDriver = "2.0.2"
 uiTestJunit4Android = "1.7.8"
 mokkery = "2.7.2"
@@ -43,6 +44,7 @@ ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktorCli
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorClientCore" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqliteDriver" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqliteDriver" }
 android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqliteDriver" }
 androidx-ui-test-junit4-android = { module = "androidx.compose.ui:ui-test-junit4-android", version.ref = "uiTestJunit4Android" }
